@@ -1,10 +1,49 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="layout/plantilla :: head">
-    </head>
-    <body>
-        <header th:replace="layout/plantilla :: header"/>
+<head th:replace="layout/layout :: head"></head>
+
+<body>
+    <header th:replace="layout/layout :: header"></header>
+
+    <section> 
+        <div style="text-align: center; margin: 5px">
+            <h1>Iniciar Sesion en tu Cuenta</h1>
+        </div>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-sm-6 mx-auto"> 
+                    <form>
+                        
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example1">Correo Electronico</label>
+                            <input type="email" id="form2Example1" class="form-control" />
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example2">Contraseña</label>
+                            <input type="password" id="form2Example2" class="form-control" />
+                        </div>
+
+                        <!-- Submit button -->
+                           <a class="btn btn-primary" href="MenuPrincipal" role="button">Ingresar</a>
+                        
+
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p>¿No tiene una cuenta?</p>
+                            <a class="btn btn-primary" href="RegistroUsuarios" role="button">Registrarse</a>
+                        </div>
+                    </form>
+                    </div>                    
+                </div>
+        </section>
+
+        <footer th:replace="layout/layout :: footer"></footer>
     </body>
+
 </html>
+
+
