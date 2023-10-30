@@ -17,15 +17,19 @@ public class MiPerfil implements Serializable{
 
     @Id
     private Long idUsuario;
-    private String nombre;
+    private String nombre;    
     private String correo;
+    private String contrasena;
+    
 
     public MiPerfil() {
     }
 
-    public MiPerfil(Long idUsuario, String nombre, String correo) {
-        this.idUsuario=idUsuario;
+    public MiPerfil(String nombre, String correo, String contrasena) {
         this.nombre = nombre;
         this.correo = correo;
-    }  
+        this.contrasena = contrasena;
+    }
+
+   
 }
