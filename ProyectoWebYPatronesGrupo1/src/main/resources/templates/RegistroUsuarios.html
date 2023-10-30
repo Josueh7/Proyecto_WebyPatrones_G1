@@ -3,40 +3,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org">
     <head th:replace="layout/layout :: head"></head>
-    <body>
+    <body style="background-color: #5C4AB5">
         <header th:replace="layout/layout :: header"></header>
 
-        <section> 
-            <div style="text-align: center; margin: 5px">
+        <section class="container" mt-3> 
+            <div class="text-center">
                 <h1>Ingrese los siguientes datos</h1>
             </div>
-            <div class="container my-5">
-                <div class="row">
-                    <div class="col-sm-6 mx-auto"> <!-- Utiliza col-sm-6 para un formulario responsivo -->
+                    <div class="col-sm-6 mx-auto"> 
                         <form>
-
                             <div class="form-group mb-4">
-                                <label class="form-label" for="usr">Nombre</label>
-                                <input type="text" class="form-control" id="usr">
+                                <label class="form-label" for="Nombre">Nombre</label>
+                                <input type="text" class="form-control" id="Nombre">
                             </div>
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="form2Example1">Correo Electronico</label>
-                                <input type="email" id="form2Example1" class="form-control" />                                
+                                <label class="form-label" for="Correo">Correo Electronico</label>
+                                <input type="email" id="Correo" class="form-control" />                                
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="form2Example2">Contraseña</label>
-                                <input type="password" id="form2Example2" class="form-control" />                                
+                                <label class="form-label" for="Contrasena">Contraseña</label>
+                                <input type="password" id="Contrasena" class="form-control" />                                
                             </div>
                             
                             <!--este debe redirigir al menu principal-->
                             <a class="btn btn-primary" href="MenuPrincipal" role="button">Registrar</a>
-                            
                         </form>
-                    </div>                    
-                </div>
+                    </div>  
         </section>
 
 
