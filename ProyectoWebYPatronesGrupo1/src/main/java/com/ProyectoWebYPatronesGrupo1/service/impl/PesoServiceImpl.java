@@ -6,11 +6,13 @@ import com.ProyectoWebYPatronesGrupo1.domain.Peso;
 import com.ProyectoWebYPatronesGrupo1.service.PesoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PesoServiceImpl implements PesoService {
 
     
-        @Autowired
+    @Autowired
     private PesoDao pesoDao;
     
     
