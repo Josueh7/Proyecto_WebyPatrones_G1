@@ -10,31 +10,26 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.sql.Time;
+import java.util.Date;
 import lombok.Data;
 
-@Data 
-@Entity 
-@Table(name = "sueno")
+/**
+ *
+ * @author danny
+ */
+@Data
+@Entity
+@Table(name="sueno")
 public class Sueno implements Serializable{
     
     private static final long serialVersionUID=1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRegistro;
-    private int horaInicio;
-    private int horaFinal;
-
-    public Sueno() {
-    }
-
-    public Sueno(int horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-    
-    public Sueno(int horaInicio, int horaFinal) {
-        this.horaInicio = horaInicio;
-        this.horaFinal = horaFinal;
-    } 
-    
+    private Long idSueno;
+    private Date fecha;
+    private Time horaInicio;
+    private Time horaFinal;
+    private int cantHoraSueno;
 }
