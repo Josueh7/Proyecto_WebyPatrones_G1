@@ -5,8 +5,6 @@ import com.ProyectoWebYPatronesGrupo1.domain.MiPerfil;
 import java.util.List;
 
 public interface MiPerfilService {
-
-    public List<MiPerfil> getInfoPerfil();
     
     public MiPerfil getCampoPerfil(MiPerfil perfil);
 
