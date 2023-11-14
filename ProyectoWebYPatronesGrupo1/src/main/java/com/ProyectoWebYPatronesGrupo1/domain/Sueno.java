@@ -11,6 +11,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 import lombok.Data;
 
@@ -28,8 +30,8 @@ public class Sueno implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSueno;
-    private Date fecha;
-    private Time horaInicio;
-    private Time horaFinal;
+    private String fecha;
+    private LocalDateTime momentoInicio;
+    private LocalDateTime momentoFinal;
     private int cantHoraSueno;
 }

@@ -9,12 +9,14 @@ import com.ProyectoWebYPatronesGrupo1.domain.Sueno;
 import com.ProyectoWebYPatronesGrupo1.service.SuenoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author danny
  */
+@Service
 public class SuenoServiceImpl implements SuenoService{
 
     @Autowired
@@ -35,8 +37,9 @@ public class SuenoServiceImpl implements SuenoService{
 
 
     @Override
+    @Transactional(readOnly = true)
     public List<Sueno> getInfoRegSuenos() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return suenoDao.findAll();
     }
 
     @Override
