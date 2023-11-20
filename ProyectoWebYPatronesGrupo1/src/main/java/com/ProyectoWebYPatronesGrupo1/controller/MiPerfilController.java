@@ -2,7 +2,6 @@ package com.ProyectoWebYPatronesGrupo1.controller;
 
 import com.ProyectoWebYPatronesGrupo1.domain.MiPerfil;
 import com.ProyectoWebYPatronesGrupo1.service.MiPerfilService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,24 +16,15 @@ public class MiPerfilController {
     @Autowired
     private MiPerfilService perfilService;
 
-    @GetMapping("/MiPerfil")
-    public String inicio(Model model) {
-
-        List<MiPerfil> informacionPerfil = perfilService.getInfoPerfil();
-        model.addAttribute("informacion", informacionPerfil);//para la vista mando desde el controlador con el model todas las categorias
-
-        return "/perfil/MiPerfil";
-    }
-
     @GetMapping("/nuevo")
     public String Nuevo(MiPerfil perfil) {
-        return "/perfil/modifica";
+        return "/perfil";
     }
     
     @PostMapping("/guardar")
     public String categoriaGuardar(MiPerfil perfil) {
         perfilService.save(perfil);
-        return "redirect:/perfil/MiPerfil";
+        return "redirect:/index";
     }
     
         @GetMapping("/eliminar/{idUsuario}")

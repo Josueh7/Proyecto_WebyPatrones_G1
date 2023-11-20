@@ -4,40 +4,44 @@
       xmlns:th="http://www.thymeleaf.org">
     <head th:replace="layout/layout :: head">
     </head>
-    <body style="background-color: #5C4AB5">
-    <header th:replace="layout/layout :: header"></header>
+    <body class="body">
+        <header th:replace="layout/layout :: header"></header>
 
-    <section class="container mt-3">
-        <div class="text-center">
-            <h1>Iniciar Sesión en tu Cuenta</h1>
-        </div>
-                <div class="col-6 mx-auto"> 
-                    <form>
-                        
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="form2Example1">Correo Electronico</label>
-                            <input type="email" id="form2Example1" class="form-control" />
+        <section class="container mt-3">
+            <div class="text-center">
+                <h1>Iniciar Sesión en tu Cuenta</h1>
+            </div>
+            <div class="col-6 mx-auto"> 
+                <form>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form2Example1">Correo Electronico</label>
+                        <input type="email" id="form2Example1" class="form-control" />
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form2Example2">Contraseña</label>
+                        <input type="password" id="form2Example2" class="form-control" />
+                    </div>
+
+                    <!-- Submit button -->
+                    <div class="col-12">
+                        <a class="btn btn-primary" th:href="@{/MenuPrincipal}">Inicio</a>
+                    </div>
+
+
+                    <!-- Register buttons -->
+                    <div class="text-center">
+                        <p>¿No tiene una cuenta?</p>
+                        <div class="col-12">
+                            <a class="btn btn-primary" th:href="@{/Usuario}">Registrarse</a>
                         </div>
+                    </div>
+                </form>
+            </div>                    
 
-                        <!-- Password input -->
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="form2Example2">Contraseña</label>
-                            <input type="password" id="form2Example2" class="form-control" />
-                        </div>
-
-                        <!-- Submit button -->
-                           <a class="btn btn-primary" href="MenuPrincipal" role="button">Ingresar</a>
-                        
-
-                        <!-- Register buttons -->
-                        <div class="text-center">
-                            <p>¿No tiene una cuenta?</p>
-                            <a class="btn btn-primary" href="RegistroUsuarios" role="button">Registrarse</a>
-                        </div>
-                    </form>
-                    </div>                    
-               
-           </section>
+        </section>
         <footer th:replace="layout/layout :: footer"></footer>
     </body>
 </html>
