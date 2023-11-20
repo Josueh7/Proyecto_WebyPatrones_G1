@@ -2,7 +2,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="layout/layout :: head"></head>
+    <head th:replace="layout/layout :: head">
+        
+    </head>
     <body style="background-color: #5C4AB5">
         <header th:replace="layout/layout :: header"></header>
 
@@ -19,7 +21,7 @@
                 </div>
                 <div class="row align-items-center">
                     <div class="col-4" th:each="s : ${suenos}">
-                        <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card custom-card mb-3" style="max-width: 25rem;">
                             <div class="card-header">Fecha: [[${s.fecha}]]</div>
                             <div class="card-body">
                                 <h5 th:if="${s.cantHoraSueno>6}" class="card-title">
@@ -31,6 +33,12 @@
                                 <p class="card-text">Hora Inicio: [[${s.momentoInicio}]]</p>
                                 <p class="card-text">Hora Final [[${s.momentoFinal}]]</p>
                                 <p class="card-text">Cantidad de Horas: [[${s.cantHoraSueno}]]</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                <a type="button" class="btn btn-outline-light btn-mm" th:href="@{/sueno/modificarSueno/}+${s.idSueno}"
+                                   >Actualizar el registro</a>
+                                <a type="button" class="btn btn-outline-light btn-mm" th:href="@{/sueno/confirmarEliminar/}+${s.idSueno}"
+                                   >Eliminar</a>
                             </div>
                         </div>
                     </div>

@@ -18,17 +18,23 @@
                     </div>
                 </div>
                 <div class="row align-items-center">
-                    <form th:action="@{/sueno/guardar}" method="post" th:object="${sueno}">
+                    <form th:action="@{/sueno/guardar}"
+                          method="post" th:object="${sueno}" 
+                          class="was-validated"                          
+                          enctype="multipart/form-data">
                         <div class="row my-4">
+                            <input type="hidden" name="idSueno" th:field="*{idSueno}"/>
                             <label for="momentoInicio" class="col-3 col-form-label-lg">Hora de Inicio del sueño</label>
                             <div class="col">
-                                <input type="datetime-local" class="col-4 form-control-lg float-start" id="momentoInicio" name="momentoInicio">
+                                <input type="datetime-local" class="col-4 form-control-lg float-start" 
+                                       id="momentoInicio" name="momentoInicio" 
+                                       th:value="*{momentoInicio}" required="true">
                             </div>
                         </div>
                         <div class="row my-4">
                             <label for="momentoFinal" class="col-3 col-form-label-lg ">Hora Final del sueño</label>
                             <div class="col">
-                                <input type="datetime-local" class="col-4 form-control-lg float-start" id="momentoFinal" name="momentoFinal">
+                                <input type="datetime-local" class="col-4 form-control-lg float-start" id="momentoFinal" name="momentoFinal" th:value="*{momentoFinal}" required="true" >
                             </div>
                         </div>
                         <div class="row my-4">
