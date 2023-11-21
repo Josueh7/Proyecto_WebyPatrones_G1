@@ -1,5 +1,5 @@
-#body{
-    background-color: red;
+.body{
+    background-color: #9C89FC;
 }
 
 .custom-card{
@@ -11,4 +11,17 @@
     color: #ffffff;
     font-size: x-large;
     text-align: center;
+}
+
+#cardMenu{
+    padding-bottom: 30px;
+}
+
+#imagenMenu{
+    height: 300px;
+}
+
+#botonesCard{
+    display: inline-block;
+    margin: 5px;
 }

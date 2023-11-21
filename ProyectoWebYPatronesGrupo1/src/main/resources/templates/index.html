@@ -4,7 +4,7 @@
       xmlns:th="http://www.thymeleaf.org">
     <head th:replace="layout/layout :: head">
     </head>
-    <body class="body">
+    <body id ="body">
         <header th:replace="layout/layout :: header"></header>
 
         <section class="container mt-3">
@@ -27,7 +27,7 @@
 
                     <!-- Submit button -->
                     <div class="col-12">
-                        <a class="btn btn-primary" th:href="@{/MenuPrincipal}">Inicio</a>
+                        <a class="btn btn-primary" th:href="@{/Menu}" role="button">Ingresar</a>
                     </div>
 
 
