@@ -18,9 +18,10 @@ public class Peso implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRegistro;
+    private Long idPeso;
     private int peso;
     private int altura;
+    private int IMC;
 
     public Peso() {
     }
