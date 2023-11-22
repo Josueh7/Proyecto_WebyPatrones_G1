@@ -25,7 +25,7 @@ public class PesoServiceImpl implements PesoService {
 
     @Override
     public Peso getPeso(Peso peso) {
-         return pesoDao.findById(peso.getIdRegistro()).orElse(null);
+         return pesoDao.findById(peso.getIdPeso()).orElse(null);
     }
 
     @Override
