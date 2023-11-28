@@ -21,16 +21,18 @@ public class Hidratacion implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRegistro;
-    private int cantidadVasos;
+    private Long idHidratacion;
+    private int cantVasosAgua;
+    private String fecha; 
 
     public Hidratacion() {
     }
 
-    public Hidratacion(int cantidadVasos) {
-        this.cantidadVasos = cantidadVasos;
+    public Hidratacion(int cantVasosAgua, String fecha) {
+        this.cantVasosAgua = cantVasosAgua;
+        this.fecha = fecha;
     }
-    
-    
+
+   
     
 }

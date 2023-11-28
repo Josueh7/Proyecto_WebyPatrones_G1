@@ -14,5 +14,4 @@ public interface HidratacionService {
     
     public void delete(Hidratacion hidratacion);
 
-
 }

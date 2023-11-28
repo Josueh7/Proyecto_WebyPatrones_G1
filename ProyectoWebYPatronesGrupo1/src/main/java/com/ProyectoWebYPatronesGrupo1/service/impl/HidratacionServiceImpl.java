@@ -7,8 +7,10 @@ import com.ProyectoWebYPatronesGrupo1.domain.Hidratacion;
 import com.ProyectoWebYPatronesGrupo1.service.HidratacionService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class HidratacionServiceImpl implements HidratacionService {
 
     @Autowired
@@ -24,7 +26,7 @@ public class HidratacionServiceImpl implements HidratacionService {
 
     @Override
     public Hidratacion getHidratacion(Hidratacion hidratacion) {
-        return hidratacionDao.findById(hidratacion.getIdRegistro()).orElse(null);
+        return hidratacionDao.findById(hidratacion.getIdHidratacion()).orElse(null);
     }
 
     @Override
