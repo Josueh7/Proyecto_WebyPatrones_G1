@@ -2,7 +2,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="layout/layout :: head"></head>
+    <head th:replace="layout/layout :: head">
+        <title>Menú principal</title> 
+    </head>
     <body class="body">
         <header th:replace="MenuPrincipal/layout :: header"></header>
 
@@ -14,8 +16,9 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center text-white">Registros de agua</h5>
                                 <div id="botonesCard d-flex">
-                                    <a href="#" class="btn-sm btn-light text-decoration-none text-black ms-3">Ver Registros </a>
-                                  <a href="#" class="btn-sm btn-light text-decoration-none text-black ms-3">Registrar</a>
+                                    <a th:href="@{/hidratacion/listaHidratacion}" class="btn-sm btn-light text-decoration-none text-black ms-3">Ver Registros </a>
+                                  <a th:href="@{/hidratacion/regHidratacion}" class="btn-sm btn-light text-decoration-none text-black ms-3">Registrar</a>
+                                  
                                 </div>
                             </div>
                         </div>
