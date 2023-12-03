@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout/layout :: head"></head>
+    <body style="background-color: #5C4AB5">
+        <header th:replace="layout/layout :: header"></header>
+
+        <!-- Fragmento para añadir un registro de sueño -->
+        <section class="container" mt-3> 
+            <div class="container text-center">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h1>Escoja los sintomas</h1>
+                    </div>
+                    <div class="col">
+                        <a th:href="@{/cicloMenstrual/listaCiclos}"><i class="fa-solid fa-arrow-right fa-rotate-180 fa-2xl" style="color: #ffffff;"></i></a>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <form th:action="@{/cicloMenstrual/guardar}"
+                          method="post"
+                          th:object="${cicloMenstrual}"
+                          class="was-validated"                          
+                          enctype="multipart/form-data">
+                        <div class="row my-4">
+                            <input type="hidden" name="idRegistro" th:value="*{idRegistro}"/>
+                            <label for="fecha" class="col-3 col-form-label-lg">Fecha</label>
+                            <div class="col">
+                                <input type="datetime-local" class="col-4 form-control-lg float-start" id="fecha" name="fecha" th:value="*{fecha}">
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="dolorDeCabeza" name="dolorDeCabeza" th:value="*{dolorDeCabeza}">
+                                <label class="form-check-label" for="dolorDeCabeza">
+                                    Dolor de Cabeza
+                                </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cambiosEnLaPiel" name="cambiosEnLaPiel" th:value="*{cambiosEnLaPiel}">
+                                <label class="form-check-label" for="cambiosEnLaPiel">
+                                    Cambios en la Piel (Acné, etc..)
+                                </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="nauseas" name="nauseas" th:value="*{nauseas}">
+                                <label class="form-check-label" for="nauseas">
+                                    Nausea
+                                </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="vomitos" name="vomitos" th:value="*{vomitos}">
+                                <label class="form-check-label" for="vomitos">
+                                    Vomitos
+                                </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="dolorMenstrual" name="dolorMenstrual" th:value="*{dolorMenstrual}">
+                                <label class="form-check-label" for="dolorMenstrual">
+                                    Dolor Menstrual
+                                </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="sangrado" name="sangrado" th:value="*{sangrado}">
+                                <label class="form-check-label" for="sangrado">
+                                    Sangrado
+                                </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="otrosSintomas" name="otrosSintomas" th:value="*{otrosSintomas}">
+                                <label class="form-check-label" for="otrosSintomas">
+                                    Otros Sintomas
+                                </label>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col">
+                                <button type="submit" class="btn btn-success btn-lg float-end">Confirmar</button>
+                            </div>
+                            <div class="col">
+                                <button type="reset" class="btn btn-danger btn-lg float-start">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div th:if="${guardadoExitoso}" class="alert alert-success">
+                        <p th:text="${guardadoExitoso}"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer th:replace="layout/layout :: footer"></footer>
+    </body>
+</html>

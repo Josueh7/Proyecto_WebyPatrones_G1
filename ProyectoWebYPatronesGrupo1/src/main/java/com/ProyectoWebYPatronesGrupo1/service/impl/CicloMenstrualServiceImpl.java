@@ -9,8 +9,10 @@ import com.ProyectoWebYPatronesGrupo1.domain.CicloMenstrual;
 import com.ProyectoWebYPatronesGrupo1.service.CicloMenstrualService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class CicloMenstrualServiceImpl implements CicloMenstrualService {
 
     @Autowired

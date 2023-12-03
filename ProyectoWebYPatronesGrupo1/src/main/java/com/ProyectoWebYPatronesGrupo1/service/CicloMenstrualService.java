@@ -8,6 +8,7 @@ package com.ProyectoWebYPatronesGrupo1.service;
 import com.ProyectoWebYPatronesGrupo1.domain.CicloMenstrual;
 import java.util.List;
 
+
 public interface CicloMenstrualService {
     
     public List<CicloMenstrual> getRegistrosCicloMenstrual();
