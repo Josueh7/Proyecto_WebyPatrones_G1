@@ -11,11 +11,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data 
 @Entity 
-@Table(name = "cicloMenstrual")
+@Table(name = "ciclomenstrual")
 public class CicloMenstrual implements Serializable{
     
     private static final long serialVersionUID=1L;
@@ -23,6 +24,7 @@ public class CicloMenstrual implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRegistro;
+    private LocalDateTime fecha;
     private boolean dolorDeCabeza;
     private boolean cambiosEnLaPiel;
     private boolean nauseas;
@@ -35,7 +37,8 @@ public class CicloMenstrual implements Serializable{
     public CicloMenstrual() {
     }
 
-    public CicloMenstrual(boolean dolorDeCabeza, boolean cambiosEnLaPiel, boolean nauseas, boolean vomitos, boolean dolorMenstrual, boolean sangrado, boolean otrosSintomas) {
+    public CicloMenstrual(LocalDateTime fecha, boolean dolorDeCabeza, boolean cambiosEnLaPiel, boolean nauseas, boolean vomitos, boolean dolorMenstrual, boolean sangrado, boolean otrosSintomas) {
+        this.fecha = fecha;
         this.dolorDeCabeza = dolorDeCabeza;
         this.cambiosEnLaPiel = cambiosEnLaPiel;
         this.nauseas = nauseas;
