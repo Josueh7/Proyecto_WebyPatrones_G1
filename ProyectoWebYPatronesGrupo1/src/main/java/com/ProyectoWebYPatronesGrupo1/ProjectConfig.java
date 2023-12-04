@@ -17,9 +17,8 @@ public class ProjectConfig implements WebMvcConfigurer  {
     
     @Override
     public void addViewControllers(ViewControllerRegistry registry){
-        registry.addViewController("/").setViewName("index");
-        registry.addViewController("/login").setViewName("index");
-        registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
+        registry.addViewController("/").setViewName("login");
+        registry.addViewController("/login").setViewName("login");
     }
     
         @Autowired
@@ -33,27 +32,28 @@ public class ProjectConfig implements WebMvcConfigurer  {
     @Bean  //cambiar las rutas cuando todo este listo
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((request) -> request
-                .requestMatchers("/","/index","/Menu","/js/**","/webjars/**")
+                .requestMatchers("/","/index","/Menu","/css/**","/webjars/**","/Usuario","/usuario/guardar")
                         .permitAll()
                 .requestMatchers(
-                        "/calorias/regCalorias","/calorias/guardar","/calorias/listaCalorias",
-                        "/calorias/modificarCalorias/**","/calorias/eliminar/**","/calorias/confirmarEliminar/**",
-                        "/peso/regPeso","/peso/guardar","/peso/listaPesos","/peso/modificarPeso/**",
-                        "/peso/confirmarEliminar/**","/peso/eliminar/**","/sueno/regSueno", "/sueno/guardar",
-                        "/sueno/listaSuenos", "/sueno//modificarSueno/**","/sueno/confirmarEliminar/**","/sueno/eliminar/**",
-                        "/usuario/nuevo","/usuario/guardar",
-                        "/usuario/modificar/**","/usuario/eliminar/**"                        
+                        "/calorias/**","peso/**"
+//                        "/calorias/regCalorias","/calorias/guardar","/calorias/listaCalorias",
+//                        "/calorias/modificarCalorias/**","/calorias/eliminar/**","/calorias/confirmarEliminar/**",
+//                        "/peso/regPeso","/peso/guardar","/peso/listaPesos","/peso/modificarPeso/**",
+//                        "/peso/confirmarEliminar/**","/peso/eliminar/**","/sueno/regSueno", "/sueno/guardar",
+//                        "/sueno/listaSuenos", "/sueno//modificarSueno/**","/sueno/confirmarEliminar/**","/sueno/eliminar/**",
+//                        "/usuario/nuevo","/usuario/guardar","/Usuario",
+//                        "/usuario/modificar/**","/usuario/eliminar/**"                        
                 ).hasRole("ADMIN")
                 .requestMatchers(
                         "/calorias/regCalorias","/calorias/guardar","/calorias/listaCalorias",
                         "/calorias/modificarCalorias/**","/calorias/eliminar/**","/calorias/confirmarEliminar/**",
                         "/peso/regPeso","/peso/guardar","/peso/listaPesos","/peso/modificarPeso/**",
                         "/peso/confirmarEliminar/**","/peso/eliminar/**","/sueno/regSueno", "/sueno/guardar",
-                        "/sueno/listaSuenos", "/sueno//modificarSueno/**","/sueno/confirmarEliminar/**","/sueno/eliminar/**"
-                ).hasAnyRole("ADMIN", "USER")                
+                        "/sueno/listaSuenos", "/sueno/modificarSueno/**","/sueno/confirmarEliminar/**","/sueno/eliminar/**","/Usuario"
+                ).hasRole( "USER")                
                 )
                 .formLogin((form) -> form
-                .loginPage("/index").permitAll())
+                .loginPage("/login").permitAll())
                 .logout((logout) -> logout.permitAll());
         return http.build();
     }

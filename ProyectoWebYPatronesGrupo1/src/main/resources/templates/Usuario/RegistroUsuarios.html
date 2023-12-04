@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout/layout :: head"></head>
+    <body class="body">
+        <header th:replace="layout/layout :: header"></header>
+
+        <section class="container" mt-3> 
+            <div class="text-center">
+                <h1>Ingrese los siguientes datos</h1>
+            </div>
+            <div class="col-sm-6 mx-auto"> 
+                <form th:action="@{/usuario/guardar}" th:object="${usuario}"
+                      method="POST" class="was-validated"
+                      enctype="multipart/form-data">
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="nombre">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" required="true"/>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="apellidos">Apellidos</label>
+                        <input type="text" class="form-control" name="apellidos" required="true"/>
+                    </div>
+                    <!-- Email input -->
+                    <div class="form-group mb-4">
+                        <label for="username">Nombre de Usuario</label>
+                        <input type="text" class="form-control" name="username" required="true"/>
+                    </div>
+                    <!-- Password input -->
+                    <div class="form-group mb-4">
+                        <label for="password">Contraseña</label>
+                        <input type="password" class="form-control" name="password" required="true"/>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="email">Correo Electronico</label>
+                        <input type="email" class="form-control" name="correo" required="true"/>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>  
+        </section>
+
+
+        <footer th:replace="layout/layout :: footer"></footer>
+    </body>
+</html>
+

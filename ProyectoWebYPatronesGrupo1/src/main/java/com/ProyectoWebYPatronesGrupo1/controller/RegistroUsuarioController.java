@@ -11,6 +11,6 @@ public class RegistroUsuarioController {
     @RequestMapping("/Usuario")
     public String page(Model model) {
         model.addAttribute("attribute", "value");
-        return "/RegistroUsuario/RegistroUsuarios"; 
+        return "/Usuario/RegistroUsuarios"; 
     }
 }
