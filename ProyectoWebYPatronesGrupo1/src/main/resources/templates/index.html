@@ -2,47 +2,97 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="layout/layout :: head">
-    </head>
-    <body id ="body">
-        <header th:replace="layout/layout :: header"></header>
+    <head th:replace="layout/layout :: head"></head>
+    <body class="body">
+        <header th:replace="MenuPrincipal/layout :: header"></header>
 
-        <section class="container mt-3">
-            <div class="text-center">
-                <h1>Iniciar Sesión en tu Cuenta</h1>
-            </div>
-            <div class="col-6 mx-auto"> 
-                <form>
-
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="form2Example1">Correo Electronico</label>
-                        <input type="email" id="form2Example1" class="form-control" />
-                    </div>
-
-                    <!-- Password input -->
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="form2Example2">Contraseña</label>
-                        <input type="password" id="form2Example2" class="form-control" />
-                    </div>
-
-                    <!-- Submit button -->
-                    <div class="col-12">
-                        <a class="btn btn-primary" th:href="@{/Menu}" role="button">Ingresar</a>
-                    </div>
-
-
-                    <!-- Register buttons -->
-                    <div class="text-center">
-                        <p>¿No tiene una cuenta?</p>
-                        <div class="col-12">
-                            <a class="btn btn-primary" th:href="@{/Usuario}">Registrarse</a>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-3 mt-5">
+                    <section id="cardMenu">
+                        <div class="card" style="background-color: #2E0069">
+                            <div class="card-body">
+                                <h5 class="card-title text-center text-white">Registros de agua</h5>
+                                <div id="botonesCard d-flex">
+                                    <a th:href="@{/hidratacion/listaHidratacion}" class="btn-sm btn-light text-decoration-none text-black ms-3">Ver Registros </a>
+                                    <a th:href="@{/hidratacion/regHidratacion}" class="btn-sm btn-light text-decoration-none text-black ms-3">Registrar</a>
+                                </div>
+                            </div>
                         </div>
+                    </section>
+                </div>
+                <div class="col-md-3 mt-5">
+                    <section id="cardMenu">
+                        <div class="card" style="background-color: #2E0069">
+                            <div class="card-body">
+                                <h5 class="card-title text-center text-white">Registros de peso</h5>
+                                <div id="botonesCard d-flex">
+                                    <a href="#" class="btn-sm btn-light text-decoration-none text-black ms-3">Ver Registros </a>
+                                    <a href="#" class="btn-sm btn-light text-decoration-none text-black ms-3">Registrar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-3 mt-5">
+                    <section id="cardMenu">
+                        <div class="card" style="background-color: #2E0069">
+                            <div class="card-body">
+                                <h5 class="card-title text-center text-white">Registros de Calorias</h5>
+                                <div id="botonesCard d-flex">
+                                    <a th:href="@{/calorias/listaCalorias}" class="btn-sm btn-light text-decoration-none text-black ms-3">Ver Registros </a>
+                                    <a th:href="@{/calorias/regCalorias}" class="btn-sm btn-light text-decoration-none text-black ms-3">Registrar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-3" >
+                    <div>
+                        <a href="#" class="text-decoration-none" style="color:white; text-align: center; font-size: 25px;">Ver mi perfil</a>
                     </div>
-                </form>
-            </div>                    
-
-        </section>
-        <footer th:replace="layout/layout :: footer"></footer>
+                </div>
+                <div class="col-md-3 mt-5">
+                    <section id="cardMenu">
+                        <div class="card" style="background-color: #2E0069">
+                            <div class="card-body">
+                                <h5 class="card-title text-center text-white">Registros de ciclo menstrual</h5>
+                                <div id="botonesCard d-flex">
+                                    <a href="#" class="btn-sm btn-light text-decoration-none text-black ms-3">Ver Registros </a>
+                                    <a href="#" class="btn-sm btn-light text-decoration-none text-black ms-3">Registrar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-3 mt-5">
+                    <section id="cardMenu">
+                        <div class="card" style="background-color: #2E0069">
+                            <div class="card-body">
+                                <h5 class="card-title text-center text-white">Registros de sueño</h5>
+                                <div id="botonesCard d-flex">
+                                    <a th:href="@{/sueno/listaSuenos}" class="btn-sm btn-light text-decoration-none text-black ms-3">Ver Registros </a>
+                                    <a th:href="@{/sueno/regSueno}" class="btn-sm btn-light text-decoration-none text-black ms-3">Registrar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-3 mt-5">
+                    <section id="cardMenu">
+                        <div class="card" style="background-color: #2E0069">
+                            <div class="card-body">
+                                <h5 class="card-title text-center text-white">Registros de suplementos</h5>
+                                <div id="botonesCard d-flex">
+                                    <a href="#" class="btn-sm btn-light text-decoration-none text-black ms-3">Ver Registros </a>
+                                    <a href="#" class="btn-sm btn-light text-decoration-none text-black ms-3">Registrar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
 
