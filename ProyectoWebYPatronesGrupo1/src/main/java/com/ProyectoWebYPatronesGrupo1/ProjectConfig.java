@@ -44,16 +44,16 @@ public class ProjectConfig implements WebMvcConfigurer  {
                         "/hidratacion/confirmarEliminar/**", "/hidratacion/eliminar/**",
                         "/usuario/nuevo","/usuario/guardar","/Usuario",
                         "/usuario/modificar/**","/usuario/eliminar/**"                        
-                ).hasRole("ADMIN")
-                .requestMatchers(
-                                                "/calorias/regCalorias","/calorias/guardar","/calorias/listaCalorias",
-                        "/calorias/modificarCalorias/**","/calorias/eliminar/**","/calorias/confirmarEliminar/**",
-                        "/peso/regPeso","/peso/guardar","/peso/listaPesos","/peso/modificarPeso/**",
-                        "/peso/confirmarEliminar/**","/peso/eliminar/**","/sueno/regSueno", "/sueno/guardar",
-                        "/sueno/listaSuenos", "/sueno//modificarSueno/**","/sueno/confirmarEliminar/**","/sueno/eliminar/**",
-                        "/hidratacion/regHidratacion", "/hidratacion/guardar", "/hidratacion/listaHidratacion", "/hidratacion/modificarRegistro/**",
-                        "/hidratacion/confirmarEliminar/**", "/hidratacion/eliminar/**","/Usuario"
-                ).hasRole( "USER")                
+                ).hasAnyRole("ADMIN", "USER")
+//                .requestMatchers(
+//                        "/calorias/regCalorias","/calorias/guardar","/calorias/listaCalorias",
+//                        "/calorias/modificarCalorias/**","/calorias/eliminar/**","/calorias/confirmarEliminar/**",
+//                        "/peso/regPeso","/peso/guardar","/peso/listaPesos","/peso/modificarPeso/**",
+//                        "/peso/confirmarEliminar/**","/peso/eliminar/**","/sueno/regSueno", "/sueno/guardar",
+//                        "/sueno/listaSuenos", "/sueno//modificarSueno/**","/sueno/confirmarEliminar/**","/sueno/eliminar/**",
+//                        "/hidratacion/regHidratacion", "/hidratacion/guardar", "/hidratacion/listaHidratacion", "/hidratacion/modificarRegistro/**",
+//                        "/hidratacion/confirmarEliminar/**", "/hidratacion/eliminar/**","/Usuario"
+//                ).hasRole( "USER")                
                 )
                 .formLogin((form) -> form
                 .loginPage("/login").permitAll())
