@@ -5,10 +5,30 @@
 .custom-card{
     color: #ffffff;
     background-color: #2e0069;
+    max-width: 25rem;
+    height: 250px;
+}
+
+.custom-card-body{
+    max-height: 70%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.custom-card-top{
+    color: #ffffff;
+    max-height: 15%;
+    background-color: #8D56F0;
+    max-width: 35rem;
+    
 }
 
 .confirmation-text{
     color: #ffffff;
     font-size: x-large;
     text-align: center;
+}
+
+.formularioCiclo{
+    text-align:left;
 }

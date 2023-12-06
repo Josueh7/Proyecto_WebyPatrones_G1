@@ -47,6 +47,7 @@ public class CicloMenstrualController {
             @RequestParam(name = "dolorMenstrual", defaultValue = "false") boolean dolorMenstrual,
             @RequestParam(name = "otrosSintomas", defaultValue = "false") boolean otrosSintomas) {
         
+        ciclo.setFechaStr(ciclo.getFecha().format(DateTimeFormatter.ISO_DATE));
         
         ciclo.setDolorDeCabeza(dolorDeCabeza);
         ciclo.setCambiosEnLaPiel(cambiosEnLaPiel);
@@ -63,6 +64,8 @@ public class CicloMenstrualController {
     public String listaCiclos(Model model) {
         var ciclos = cicloService.getRegistrosCicloMenstrual();
         model.addAttribute("ciclos", ciclos);
+        var topTres = cicloService.calcularTopTres(ciclos);
+        model.addAttribute("topTres", topTres);
         return "cicloMenstrual/listadoCiclo";
     }
     

@@ -18,11 +18,11 @@
                     </div>
                 </div>
                 <div class="row align-items-center">
-                    <form th:action="@{/cicloMenstrual/guardar}" method="post" th:object="${cicloMenstrual}">
+                    <form th:action="@{/cicloMenstrual/guardar}" class="formularioCiclo" method="post" th:object="${cicloMenstrual}">
                         <div class="row my-4">
-                            <label for="fecha" class="col-3 col-form-label-lg">Fecha</label>
+                            <label for="fecha" class="col-2 col-form-label-lg">Fecha</label>
                             <div class="col">
-                                <input type="datetime-local" class="col-4 form-control-lg float-start" id="fecha" name="fecha">
+                                <input type="datetime-local" class="col-6 form-control-lg float-start" id="fecha" name="fecha">
                             </div>
                         </div>
                         <div class="form-check">
