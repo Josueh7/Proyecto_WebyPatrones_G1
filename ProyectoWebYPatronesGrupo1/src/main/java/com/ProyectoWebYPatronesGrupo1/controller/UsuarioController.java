@@ -3,6 +3,8 @@ package com.ProyectoWebYPatronesGrupo1.controller;
 import com.ProyectoWebYPatronesGrupo1.domain.Usuario;
 import com.ProyectoWebYPatronesGrupo1.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,9 +21,11 @@ public class UsuarioController {
 
     @GetMapping("/listado")
     public String listado(Model model) {
-        var usuarios = usuarioService.getUsuarios();
-        model.addAttribute("usuarios", usuarios);
-        model.addAttribute("totalUsuarios", usuarios.size());
+//      var usuarios = usuarioService.getUsuarios();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        Usuario usuarioAutenticado = usuarioService.getUsuarioPorUsername(username);
+        model.addAttribute("usuarioAutenticado", usuarioAutenticado);   
         return "/usuario/listado";
     }
 
@@ -32,7 +36,7 @@ public class UsuarioController {
 
     @PostMapping("/guardar")
     public String usuarioGuardar(Usuario usuario) {
-        
+
         //Validar si es una creacion o modificacion (Si trae un ID)
         boolean nuevo = true;
         if (usuario.getIdUsuario() != 0) {

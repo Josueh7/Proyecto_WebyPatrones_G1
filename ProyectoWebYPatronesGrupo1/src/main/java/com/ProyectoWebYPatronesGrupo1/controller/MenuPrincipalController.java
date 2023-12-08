@@ -10,7 +10,7 @@ public class MenuPrincipalController {
     @RequestMapping("/Menu")
     public String page(Model model) {
         model.addAttribute("attribute", "value");
-        return "/MenuPrincipal/MenuPrincipal";
+        return "/index";
     }
 
 }
