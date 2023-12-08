@@ -18,18 +18,23 @@ public class Peso implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRegistro;
-    private int peso;
-    private int altura;
+    private Long idPeso;
+    private double peso;
+    private double altura;
+    private double IMC;
+    private String fecha;
+
+    public Peso(double peso, double altura, double IMC, String fecha) {
+        this.peso = peso;
+        this.altura = altura;
+        this.IMC = IMC;
+        this.fecha = fecha;
+    }
 
     public Peso() {
     }
 
-    public Peso(int peso, int altura) {
-        this.peso = peso;
-        this.altura = altura;
-    }
-    
+  
     
      
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="MenuPrincipal/layout :: head">
+
+    </head>
+    <body>
+        <header th:replace="MenuPrincipal/layout :: header"></header>
+
+        <!-- Fragmento para añadir un registro de sueño -->
+        <section class="container mt-3"> 
+            <div class="container text-center">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h1>Registros</h1>
+                    </div>
+                    <div class="col">
+                        <a th:href="@{/}"><i class="fa-solid fa-arrow-right fa-rotate-180 fa-2xl" style="color: #ffffff;"></i></a>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-4" th:each="c : ${calorias}">
+                        <div class="card custom-card mb-3" style="max-width: 25rem;">
+                            <div class="card-header">Fecha: [[${c.fecha}]]</div>
+                            <div class="card-body">
+                                <h5 th:if="${c.calorias<c.meta}" class="card-title">
+                                    Te hicieron falta <span th:text="${c.meta - c.calorias}"></span> calorías
+                                </h5>
+                                <h5 th:if="${c.calorias==c.meta}" class="card-title">
+                                    !Lo lograste felicidades!
+                                </h5>
+                                <h5 th:if="${c.calorias>c.meta}" class="card-title">
+                                    Te pasaste por <span th:text="${c.calorias - c.meta}"></span> calorías
+                                </h5>
+                                
+                                <p class="card-text">Meta de calorias: [[${c.meta}]]</p>
+                                <p class="card-text">Calorias consumidas [[${c.calorias}]]</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                <a type="button" class="btn btn-outline-light btn-mm" th:href="@{/calorias/modificarCalorias/}+${c.idCalorias}"
+                                   >Actualizar el registro</a>
+                                <a type="button" class="btn btn-outline-light btn-mm" th:href="@{/calorias/confirmarEliminar/}+${c.idCalorias}"
+                                   >Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer th:replace="layout/layout :: footer"></footer>
+    </body>
+</html>

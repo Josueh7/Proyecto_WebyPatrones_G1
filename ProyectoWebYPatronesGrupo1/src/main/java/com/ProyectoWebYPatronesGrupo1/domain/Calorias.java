@@ -21,18 +21,17 @@ public class Calorias implements Serializable {
      
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRegistro;
+    private Long idCalorias;
+    private String fecha;
     private int meta;
     private int calorias;
 
     public Calorias() {
     }
 
-    public Calorias(int meta, int calorias) {
+    public Calorias(String fecha, int meta, int calorias) {
+        this.fecha = fecha;
         this.meta = meta;
         this.calorias = calorias;
     }
-    
-    
-    
 }

@@ -1,5 +1,5 @@
-#body{
-    background-color: red;
+.body{
+    background-color: #9C89FC;
 }
 
 .custom-card{
@@ -31,4 +31,16 @@
 
 .formularioCiclo{
     text-align:left;
+
+#cardMenu{
+    padding-bottom: 30px;
+}
+
+#imagenMenu{
+    height: 300px;
+}
+
+#botonesCard{
+    display: inline-block;
+    margin: 5px;
 }

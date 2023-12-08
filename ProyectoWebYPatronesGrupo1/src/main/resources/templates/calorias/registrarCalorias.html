@@ -7,34 +7,28 @@
         <header th:replace="MenuPrincipal/layout :: header"></header>
 
         <!-- Fragmento para añadir un registro de sueño -->
-        <section class="container" mt-3> 
+        <section class="container mt-3"> 
             <div class="container text-center">
                 <div class="row align-items-center">
                     <div class="col-8">
                         <h1>Ingrese los siguientes datos</h1>
                     </div>
                     <div class="col">
-                        <a th:href="@{/sueno/listaSuenos}"><i class="fa-solid fa-arrow-right fa-rotate-180 fa-2xl" style="color: #ffffff;"></i></a>
+                        <a th:href="@{/}"><i class="fa-solid fa-arrow-right fa-rotate-180 fa-2xl" style="color: #ffffff;"></i></a>
                     </div>
                 </div>
                 <div class="row align-items-center">
-                    <form th:action="@{/sueno/guardar}"
-                          method="post" th:object="${sueno}" 
-                          class="was-validated"                          
-                          enctype="multipart/form-data">
+                    <form th:action="@{/calorias/guardar}" method="post" th:object="${calorias}">
                         <div class="row my-4">
-                            <input type="hidden" name="idSueno" th:field="*{idSueno}"/>
-                            <label for="momentoInicio" class="col-3 col-form-label-lg">Hora de Inicio del sueño</label>
+                            <label for="meta" class="col-3 col-form-label-lg">Meta de calorias</label>
                             <div class="col">
-                                <input type="datetime-local" class="col-4 form-control-lg float-start" 
-                                       id="momentoInicio" name="momentoInicio" 
-                                       th:value="*{momentoInicio}" required="true">
+                                <input type="number" class="col-4 form-control-lg float-start" min="1"  id="meta" name="meta">
                             </div>
                         </div>
                         <div class="row my-4">
-                            <label for="momentoFinal" class="col-3 col-form-label-lg ">Hora Final del sueño</label>
+                            <label for="calorias" class="col-3 col-form-label-lg ">Calorias consumidas</label>
                             <div class="col">
-                                <input type="datetime-local" class="col-4 form-control-lg float-start" id="momentoFinal" name="momentoFinal" th:value="*{momentoFinal}" required="true" >
+                                <input type="number" class="col-4 form-control-lg float-start" id="calorias" name="calorias">
                             </div>
                         </div>
                         <div class="row my-4">
@@ -46,14 +40,9 @@
                             </div>
                         </div>
                     </form>
-                    <div th:if="${guardadoExitoso}" class="alert alert-success">
-                        <p th:text="${guardadoExitoso}"></p>
-                    </div>
                 </div>
             </div>
         </section>
-
-
         <footer th:replace="layout/layout :: footer"></footer>
     </body>
 </html>

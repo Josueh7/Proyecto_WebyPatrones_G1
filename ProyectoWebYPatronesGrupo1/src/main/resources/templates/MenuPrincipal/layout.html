@@ -8,19 +8,26 @@
             <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
             <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
             <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script> 
-            <link th:href="@{../css/Estilos_Layout.css}" rel="stylesheet"/>
-            
+            <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css"/>
+
     </head>
     <body>
         <header th:fragment="header" class="header">
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
                 <div class="container">
-                    <a th:href="@{/Menu}" class="navbar-brand">Menu Principal</a>
+                    <a th:href="@{/}" class="navbar-brand">Menu Principal</a>
                     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                    <div class="nav-item text-white my-auto">
+                        <form method="POST" th:action="@{/logout}">
+                            <button class="btn btn-dark">
+                                <i class="fa fa-sign-out-alt"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </nav>
         </header>
-        
-        
+    </body>   
+</html>

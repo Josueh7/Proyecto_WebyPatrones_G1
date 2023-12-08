@@ -2,12 +2,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="layout/layout :: head"></head>
+    <head th:replace="layout/layout :: head">
+        <title>Hidratacion</title>
+    </head>
     <body style="background-color: #5C4AB5">
         <header th:replace="MenuPrincipal/layout :: header"></header>
 
-        <!-- Fragmento para añadir un registro de sueño -->
-        <section class="container" mt-3> 
+        <!-- Fragmento para añadir un registro de hidratacion -->
+        <section class="container mt-3"> 
             <div class="container text-center">
                 <div class="row align-items-center">
                     <div class="col-8">
@@ -18,17 +20,13 @@
                     </div>
                 </div>
                 <div class="row align-items-center">
-                    <form th:action="@{/sueno/guardar}" method="post" th:object="${sueno}">
+                    <form th:action="@{/hidratacion/guardar}" method="post" th:object="${hidratacion}">
+                        
                         <div class="row my-4">
-                            <label for="momentoInicio" class="col-3 col-form-label-lg">Hora de Inicio del sueño</label>
+                            
+                            <label for="cantVasosAgua" class="col-3 col-form-label-lg ">Vasos de agua consumidos</label>
                             <div class="col">
-                                <input type="datetime-local" class="col-4 form-control-lg float-start" id="momentoInicio" name="momentoInicio">
-                            </div>
-                        </div>
-                        <div class="row my-4">
-                            <label for="momentoFinal" class="col-3 col-form-label-lg ">Hora Final del sueño</label>
-                            <div class="col">
-                                <input type="datetime-local" class="col-4 form-control-lg float-start" id="momentoFinal" name="momentoFinal">
+                                <input type="number" class="col-4 form-control-lg float-start" id="cantVasosAgua" name="cantVasosAgua"/>
                             </div>
                         </div>
                         <div class="row my-4">
@@ -40,14 +38,9 @@
                             </div>
                         </div>
                     </form>
-                    <div th:if="${guardadoExitoso}" class="alert alert-success">
-                        <p th:text="${guardadoExitoso}"></p>
-                    </div>
                 </div>
             </div>
         </section>
-
-
         <footer th:replace="layout/layout :: footer"></footer>
     </body>
 </html>

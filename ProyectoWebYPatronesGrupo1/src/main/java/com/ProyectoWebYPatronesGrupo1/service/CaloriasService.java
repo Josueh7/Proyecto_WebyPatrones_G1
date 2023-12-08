@@ -4,11 +4,12 @@ package com.ProyectoWebYPatronesGrupo1.service;
 import com.ProyectoWebYPatronesGrupo1.domain.Calorias;
 import java.util.List;
 
+
 public interface CaloriasService {
     
-    public List<Calorias> getCalorias();
+    public List<Calorias> getRegCalorias();
     
-    public Calorias getCaloria(Calorias calorias);
+    public Calorias getRegCaloria(Calorias calorias);
 
     public void save( Calorias calorias);
     

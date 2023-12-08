@@ -4,37 +4,36 @@
       xmlns:th="http://www.thymeleaf.org">
     <head th:replace="layout/layout :: head"></head>
     <body style="background-color: #5C4AB5">
-        <header th:replace="MenuPrincipal/layout :: header"></header>
+        <header th:replace="layout/layout :: header"></header>
 
         <!-- Fragmento para añadir un registro de sueño -->
         <section class="container" mt-3> 
             <div class="container text-center">
                 <div class="row align-items-center">
                     <div class="col-8">
-                        <h1>Ingrese los siguientes datos</h1>
+                        <h1 style="color:white">Ingrese los nuevos datos</h1>
                     </div>
                     <div class="col">
-                        <a th:href="@{/sueno/listaSuenos}"><i class="fa-solid fa-arrow-right fa-rotate-180 fa-2xl" style="color: #ffffff;"></i></a>
+                        <a th:href="@{/peso/listaPesos}"><i class="fa-solid fa-arrow-left fa-2xl" style="color: #ffffff;"></i></a>
                     </div>
                 </div>
                 <div class="row align-items-center">
-                    <form th:action="@{/sueno/guardar}"
-                          method="post" th:object="${sueno}" 
-                          class="was-validated"                          
-                          enctype="multipart/form-data">
+                    <form th:action="@{/peso/guardar}"
+                          method="post" th:object="${peso}" 
+                          class="was-validated">
                         <div class="row my-4">
-                            <input type="hidden" name="idSueno" th:field="*{idSueno}"/>
-                            <label for="momentoInicio" class="col-3 col-form-label-lg">Hora de Inicio del sueño</label>
+                            <input type="hidden" name="idPeso" th:field="*{idPeso}"/>
+                            <label for="peso" class="col-3 col-form-label-lg">Peso:</label>
                             <div class="col">
-                                <input type="datetime-local" class="col-4 form-control-lg float-start" 
-                                       id="momentoInicio" name="momentoInicio" 
-                                       th:value="*{momentoInicio}" required="true">
+                                <input type="Number" class="col-4 form-control-lg float-start" 
+                                       id="peso" name="peso" 
+                                       th:value="*{peso}" required="true">
                             </div>
                         </div>
                         <div class="row my-4">
-                            <label for="momentoFinal" class="col-3 col-form-label-lg ">Hora Final del sueño</label>
+                            <label for="altura" class="col-3 col-form-label-lg ">Altura:</label>
                             <div class="col">
-                                <input type="datetime-local" class="col-4 form-control-lg float-start" id="momentoFinal" name="momentoFinal" th:value="*{momentoFinal}" required="true" >
+                                <input type="text" class="col-4 form-control-lg float-start" id="altura" name="altura" th:value="*{altura}" required="true" >
                             </div>
                         </div>
                         <div class="row my-4">
@@ -46,9 +45,6 @@
                             </div>
                         </div>
                     </form>
-                    <div th:if="${guardadoExitoso}" class="alert alert-success">
-                        <p th:text="${guardadoExitoso}"></p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -57,3 +53,4 @@
         <footer th:replace="layout/layout :: footer"></footer>
     </body>
 </html>
+
