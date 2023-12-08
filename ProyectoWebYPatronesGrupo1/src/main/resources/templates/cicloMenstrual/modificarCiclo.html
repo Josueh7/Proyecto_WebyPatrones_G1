@@ -20,54 +20,54 @@
                 <div class="row align-items-center">
                     <form th:action="@{/cicloMenstrual/guardar}"
                           method="post"
-                          th:object="${cicloMenstrual}"
-                          class="was-validated"                          
+                          class="formularioCiclo"
+                          th:object="${ciclo}"                    
                           enctype="multipart/form-data">
+                        <input type="hidden" name="idRegistro" th:field="*{idRegistro}"/>
                         <div class="row my-4">
-                            <input type="hidden" name="idRegistro" th:value="*{idRegistro}"/>
-                            <label for="fecha" class="col-3 col-form-label-lg">Fecha</label>
+                            <label for="fecha" class="col-2 col-form-label-lg">Fecha</label>
                             <div class="col">
-                                <input type="datetime-local" class="col-4 form-control-lg float-start" id="fecha" name="fecha" th:value="*{fecha}">
+                                <input type="datetime-local" class="col-6 form-control-lg float-start" id="fecha" name="fecha" th:value="*{fecha}" required="true">
                             </div>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="dolorDeCabeza" name="dolorDeCabeza" th:value="*{dolorDeCabeza}">
+                            <input class="form-check-input" type="checkbox" id="dolorDeCabeza" name="dolorDeCabeza" th:field="*{dolorDeCabeza}">
                                 <label class="form-check-label" for="dolorDeCabeza">
                                     Dolor de Cabeza
                                 </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="cambiosEnLaPiel" name="cambiosEnLaPiel" th:value="*{cambiosEnLaPiel}">
+                            <input class="form-check-input" type="checkbox" id="cambiosEnLaPiel" name="cambiosEnLaPiel" th:field="*{cambiosEnLaPiel}">
                                 <label class="form-check-label" for="cambiosEnLaPiel">
                                     Cambios en la Piel (Acné, etc..)
                                 </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="nauseas" name="nauseas" th:value="*{nauseas}">
+                            <input class="form-check-input" type="checkbox" id="nauseas" name="nauseas" th:field="*{nauseas}">
                                 <label class="form-check-label" for="nauseas">
                                     Nausea
                                 </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="vomitos" name="vomitos" th:value="*{vomitos}">
+                            <input class="form-check-input" type="checkbox" id="vomitos" name="vomitos" th:field="*{vomitos}">
                                 <label class="form-check-label" for="vomitos">
                                     Vomitos
                                 </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="dolorMenstrual" name="dolorMenstrual" th:value="*{dolorMenstrual}">
+                            <input class="form-check-input" type="checkbox" id="dolorMenstrual" name="dolorMenstrual" th:field="*{dolorMenstrual}">
                                 <label class="form-check-label" for="dolorMenstrual">
                                     Dolor Menstrual
                                 </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="sangrado" name="sangrado" th:value="*{sangrado}">
+                            <input class="form-check-input" type="checkbox" id="sangrado" name="sangrado" th:field="*{sangrado}">
                                 <label class="form-check-label" for="sangrado">
                                     Sangrado
                                 </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="otrosSintomas" name="otrosSintomas" th:value="*{otrosSintomas}">
+                            <input class="form-check-input" type="checkbox" id="otrosSintomas" name="otrosSintomas" th:field="*{otrosSintomas}">
                                 <label class="form-check-label" for="otrosSintomas">
                                     Otros Sintomas
                                 </label>

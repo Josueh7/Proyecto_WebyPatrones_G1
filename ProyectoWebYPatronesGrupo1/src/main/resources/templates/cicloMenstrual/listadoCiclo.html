@@ -19,11 +19,20 @@
                         <i class="fa-solid fa-arrow-right fa-rotate-180 fa-2xl" style="color: #ffffff;"></i>
                     </div>
                 </div>
+                <div class="col-12 align-items-center">
+                    <div class="card container custom-card-top mb-3 mt-3">
+                        <h3>Top de Sintomas</h3>
+                        <div class="row" th:each="top : ${topTres}">
+                            <h5 th:text="${top}"></h5>
+                        </div>
+                    </div>
+                </div>
                 <div class="row align-items-center">
+
                     <div class="col-4" th:each="c : ${ciclos}">
-                        <div class="card custom-card mb-3" style="max-width: 25rem;">
-                            <div class="card-header">Fecha: [[${c.fecha}]]</div>
-                            <div class="card-body">
+                        <div class="card custom-card mb-3">
+                            <div class="card-header">Fecha: [[${c.fechaStr}]]</div>
+                            <div class="card-body custom-card-body">
                                 <div>
                                     <h5 th:if="${c.dolorDeCabeza}" class="card-title">
                                         Dolor de cabeza
@@ -59,12 +68,12 @@
                                         Otros...
                                     </h5>
                                 </div>
-                                <div class="card-footer d-flex justify-content-between align-items-center">
-                                    <a type="button" class="btn btn-outline-light btn-mm" th:href="@{/cicloMenstrual/modificarCiclo/}+${c.idRegistro}"
-                                       >Actualizar el registro</a>
-                                    <a type="button" class="btn btn-outline-light btn-mm" th:href="@{/cicloMenstrual/confirmarEliminar/}+${c.idRegistro}"
-                                       >Eliminar</a>
-                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                <a type="button" class="btn btn-outline-light btn-mm" th:href="@{/cicloMenstrual/modificarCiclo/}+${c.idRegistro}"
+                                   >Actualizar el registro</a>
+                                <a type="button" class="btn btn-outline-light btn-mm" th:href="@{/cicloMenstrual/confirmarEliminar/}+${c.idRegistro}"
+                                   >Eliminar</a>
                             </div>
                         </div>
                     </div>

@@ -18,5 +18,6 @@ public interface CicloMenstrualService {
     public void save(CicloMenstrual cicloMenstrual);
     
     public void delete(CicloMenstrual cicloMenstrual);
-
+    
+    public List<String> calcularTopTres(List<CicloMenstrual> ciclos);
 }

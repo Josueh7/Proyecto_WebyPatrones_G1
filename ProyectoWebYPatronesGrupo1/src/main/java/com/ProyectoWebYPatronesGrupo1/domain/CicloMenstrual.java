@@ -25,6 +25,7 @@ public class CicloMenstrual implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRegistro;
     private LocalDateTime fecha;
+    private String fechaStr;
     private boolean dolorDeCabeza;
     private boolean cambiosEnLaPiel;
     private boolean nauseas;
@@ -37,8 +38,9 @@ public class CicloMenstrual implements Serializable{
     public CicloMenstrual() {
     }
 
-    public CicloMenstrual(LocalDateTime fecha, boolean dolorDeCabeza, boolean cambiosEnLaPiel, boolean nauseas, boolean vomitos, boolean dolorMenstrual, boolean sangrado, boolean otrosSintomas) {
+    public CicloMenstrual(LocalDateTime fecha, String fechaStr, boolean dolorDeCabeza, boolean cambiosEnLaPiel, boolean nauseas, boolean vomitos, boolean dolorMenstrual, boolean sangrado, boolean otrosSintomas) {
         this.fecha = fecha;
+        this.fechaStr = fechaStr;
         this.dolorDeCabeza = dolorDeCabeza;
         this.cambiosEnLaPiel = cambiosEnLaPiel;
         this.nauseas = nauseas;
