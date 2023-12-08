@@ -39,7 +39,7 @@ public class CaloriasController {
 
     @GetMapping("/listaCalorias")
     public String listaCalorias(Model model) {
-        var calorias = caloriasService.getRegCalorias();
+        var calorias = caloriasService.getRegCalorias();        
         model.addAttribute("calorias", calorias);
         return "calorias/listadoCalorias";
     }

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-   
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec ="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
     <head th:fragment="head">
         <title>Asistente de Salud</title>
         <meta charset="UTF-8">
@@ -10,26 +12,33 @@
             <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
             <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
             <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css"/>
-            </head>
+    </head>
     <body>
         <header th:fragment="header" class="header">
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
-                <div class="container">
-                    <a th:href="@{/}" class="navbar-brand">Inicio</a>
+                <div class="container">                    
+                    <a th:href="@{/}" class="navbar-brand">Menú Principal</a>
                     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                    <div class="nav-item text-white my-auto">
+                        <form method="POST" th:action="@{/logout}">
+                            <button class="btn btn-dark">
+                                <i class="fa fa-sign-out-alt"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </nav>
         </header>
     </body>
     <footer th:fragment="footer" class="bg-dark text-white fixed-bottom">
-            <div class="container">
-                <div class="col">
-                    <p class="lead text-center">
-                        &COPY; Derechos Reservados
-                    </p>
-                </div>
+        <div class="container">
+            <div class="col">
+                <p class="lead text-center">
+                    &COPY; Derechos Reservados
+                </p>
             </div>
-        </footer>
+        </div>
+    </footer>
 </html>

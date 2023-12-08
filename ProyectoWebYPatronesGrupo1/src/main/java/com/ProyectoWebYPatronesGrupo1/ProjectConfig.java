@@ -17,7 +17,7 @@ public class ProjectConfig implements WebMvcConfigurer  {
     
     @Override
     public void addViewControllers(ViewControllerRegistry registry){
-        registry.addViewController("/").setViewName("login");
+        registry.addViewController("/").setViewName("index");
         registry.addViewController("/login").setViewName("login");
     }
     
@@ -29,36 +29,44 @@ public class ProjectConfig implements WebMvcConfigurer  {
         builder.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
     
-    @Bean  //cambiar las rutas cuando todo este listo
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((request) -> request
-                .requestMatchers("/","/index","/Menu","/css/**","/webjars/**","/Usuario","/usuario/guardar")
+                .requestMatchers("/","/index","/errores/**",  "/error/***","/error",
+                        "/js/**","/webjars/**", "/css/**", "/Usuario")
                         .permitAll()
                 .requestMatchers(
-                        "/calorias/regCalorias","/calorias/guardar","/calorias/listaCalorias",
-                        "/calorias/modificarCalorias/**","/calorias/eliminar/**","/calorias/confirmarEliminar/**",
-                        "/peso/regPeso","/peso/guardar","/peso/listaPesos","/peso/modificarPeso/**",
-                        "/peso/confirmarEliminar/**","/peso/eliminar/**","/sueno/regSueno", "/sueno/guardar",
-                        "/sueno/listaSuenos", "/sueno//modificarSueno/**","/sueno/confirmarEliminar/**","/sueno/eliminar/**",
-                        "/hidratacion/regHidratacion", "/hidratacion/guardar", "/hidratacion/listaHidratacion", "/hidratacion/modificarRegistro/**",
-                        "/hidratacion/confirmarEliminar/**", "/hidratacion/eliminar/**",
-                        "/usuario/nuevo","/usuario/guardar","/Usuario",
-                        "/usuario/modificar/**","/usuario/eliminar/**"                        
-                ).hasAnyRole("ADMIN", "USER")
-//                .requestMatchers(
-//                        "/calorias/regCalorias","/calorias/guardar","/calorias/listaCalorias",
-//                        "/calorias/modificarCalorias/**","/calorias/eliminar/**","/calorias/confirmarEliminar/**",
-//                        "/peso/regPeso","/peso/guardar","/peso/listaPesos","/peso/modificarPeso/**",
-//                        "/peso/confirmarEliminar/**","/peso/eliminar/**","/sueno/regSueno", "/sueno/guardar",
-//                        "/sueno/listaSuenos", "/sueno//modificarSueno/**","/sueno/confirmarEliminar/**","/sueno/eliminar/**",
-//                        "/hidratacion/regHidratacion", "/hidratacion/guardar", "/hidratacion/listaHidratacion", "/hidratacion/modificarRegistro/**",
-//                        "/hidratacion/confirmarEliminar/**", "/hidratacion/eliminar/**","/Usuario"
-//                ).hasRole( "USER")                
+                        
+                         "/Menu","/usuario", "/usuario/listado","/usuario/modificar/**", "/usuario/guardar", "/usuario/eliminar/**",
+                        
+                        "/calorias", "/calorias/regCalorias","/calorias/guardar", "/calorias/listaCalorias",
+                        "/calorias/modificarCalorias/**","/calorias/confirmarEliminar/**", "/calorias/eliminar/**",
+                        
+                       "/cicloMenstrual", "/cicloMenstrual/regCiclo","/cicloMenstrual/guardar", "/cicloMenstrual/listaCalorias",
+                      "/cicloMenstrual/modificarCiclo/**","/cicloMenstrual/confirmarEliminar/**", "/cicloMenstrual/eliminar/**",
+                        
+                        "/sueno", "/sueno/regSueno","/sueno/guardar", "/sueno/listaSuenos",
+                        "/sueno/modificarSueno/**","/sueno/confirmarEliminar/**", "/sueno/eliminar/**",
+                        
+                        "/hidratacion", "/hidratacion/regHidratacion","/hidratacion/guardar", "/hidratacion/listaHidratacion",
+                        "/hidratacion/modificarRegistro/**","/hidratacion/confirmarEliminar/**", "/hidratacion/eliminar/**",
+                        
+                        "/peso", "/peso/regPeso","/peso/guardar", "/peso/listaPesos",
+                        "/peso/modificarPeso/**","/peso/confirmarEliminar/**", "/peso/eliminar/**",
+                        
+                        "/Suplementos", "/Suplementos/regSuplementos","/Suplementos/guardar", "/Suplementos/listadoSuplementos",
+                        "/Suplementos/modificarSuplementos/**","/Suplementos/confirmarEliminar/**", "/Suplementos/eliminar/**"
+                ).hasAnyRole("USER","ADMIN")                 
                 )
-                .formLogin((form) -> form
+                .formLogin(
+                        (form) -> form
                 .loginPage("/login").permitAll())
-                .logout((logout) -> logout.permitAll());
+                .logout((logout) -> logout.permitAll()
+                );
         return http.build();
     }
 }
+
+    
+    
 

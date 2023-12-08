@@ -29,9 +29,9 @@
                         <div class="card" style="background-color: #2E0069">
                             <div class="card-body">
                                 <h5 class="card-title text-center text-white">Registros de peso</h5>
-                                <div id="botonesCard d-flex">
-                                    <a href="#" class="btn-sm btn-light text-decoration-none text-black ms-3">Ver Registros </a>
-                                    <a href="#" class="btn-sm btn-light text-decoration-none text-black ms-3">Registrar</a>
+                                <div class="card-footer d-flex justify-content-between align-items-center">
+                                   <a type="button" class="btn btn-outline-light btn-mm" th:href="@{/peso/listaPesos}" class="btn-sm btn-light text-decoration-none text-black ms-3">Ver Registros </a>
+                                    <a th:href="@{/peso/regPeso}" class="btn-sm btn-light text-decoration-none text-black ms-3">Registrar</a>
                                 </div>
                             </div>
                         </div>
@@ -98,3 +98,4 @@
         </div>
     </body>
 </html>
+

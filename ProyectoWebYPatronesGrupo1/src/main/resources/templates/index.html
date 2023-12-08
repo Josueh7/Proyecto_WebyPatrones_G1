@@ -27,8 +27,8 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center text-white">Registros de peso</h5>
                                 <div id="botonesCard d-flex">
-                                    <a href="#" class="btn-sm btn-light text-decoration-none text-black ms-3">Ver Registros </a>
-                                    <a href="#" class="btn-sm btn-light text-decoration-none text-black ms-3">Registrar</a>
+                                    <a th:href="@{/peso/listaPesos}" class="btn-sm btn-light text-decoration-none text-black ms-3">Ver Registros </a>
+                                    <a th:href="@{/peso/regPeso}" class="btn-sm btn-light text-decoration-none text-black ms-3">Registrar</a>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-md-3" >
                     <div>
-                        <a href="#" class="text-decoration-none" style="color:white; text-align: center; font-size: 25px;">Ver mi perfil</a>
+                        <a th:href="@{/usuario/listado}" class="text-decoration-none" style="color:white; text-align: center; font-size: 25px;">Ver mi perfil</a>
                     </div>
                 </div>
                 <div class="col-md-3 mt-5">
