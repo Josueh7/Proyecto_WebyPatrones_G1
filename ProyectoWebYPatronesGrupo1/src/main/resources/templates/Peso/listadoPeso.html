@@ -8,7 +8,6 @@
     <body style="background-color: #5C4AB5">
         <header th:replace="layout/layout :: header"></header>
 
-        <!-- Fragmento para añadir un registro de sueño -->
         <section class="container" mt-3> 
             <div class="container text-center">
                 <div class="row align-items-center">
@@ -16,12 +15,13 @@
                         <h1>Registros</h1>
                     </div>
                     <div class="col">
-                        <i class="fa-solid fa-arrow-left fa-2xl" style="color: #ffffff;"></i>
+                        <a th:href="@{/}"><i class="fa-solid fa-arrow-left fa-2xl" style="color: #ffffff;"></i></a>
                     </div>
                 </div>
                 <div class="row align-items-center">
                     <div class="col-4" th:each="p : ${pesos}">
                         <div class="card custom-card mb-3" style="max-width: 25rem;">
+                             <div class="card-header">Fecha: [[${p.fecha}]]</div>
                             <div class="card-body">
                                 <p class="card-text">Peso: [[${p.peso}]]</p>
                                 <p class="card-text">Altura: [[${p.altura}]]</p>

@@ -26,21 +26,24 @@ public class Suplementos implements Serializable{
     private boolean creatina;
     private boolean aminoacidos;
     private boolean multivitaminicos;
-    private boolean electrolitos;
     private boolean preEntreno;
     private boolean otrosSuplementos;
+    private String fecha;
+    private int cantidad;
 
     public Suplementos() {
     }
 
-     public Suplementos(boolean proteina, boolean creatina, boolean aminoacidos, boolean multivitaminicos, boolean electrolitos, boolean preEntreno, boolean otrosSuplementos) {
+    public Suplementos(boolean proteina, boolean creatina, boolean aminoacidos, boolean multivitaminicos, boolean preEntreno, boolean otrosSuplementos, int cantidad) {
         this.proteina = proteina;
         this.creatina = creatina;
         this.aminoacidos = aminoacidos;
         this.multivitaminicos = multivitaminicos;
-        this.electrolitos = electrolitos;
         this.preEntreno = preEntreno;
         this.otrosSuplementos = otrosSuplementos;
+        this.cantidad = cantidad;
     }
+
+
     
 }

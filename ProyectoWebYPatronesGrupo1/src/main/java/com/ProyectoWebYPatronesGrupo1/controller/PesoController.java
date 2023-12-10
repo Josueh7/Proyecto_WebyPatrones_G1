@@ -3,6 +3,8 @@ package com.ProyectoWebYPatronesGrupo1.controller;
 
 import com.ProyectoWebYPatronesGrupo1.domain.Peso;
 import com.ProyectoWebYPatronesGrupo1.service.PesoService;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +30,14 @@ public class PesoController {
     
     @PostMapping("/guardar")
     public String registrarPeso(Peso peso) {
+        LocalDate fechaActual = LocalDate.now();
 
+        peso.setFecha(fechaActual.format(DateTimeFormatter.ISO_DATE));
+        
+        double alturaIMC = (peso.getAltura() / 100) * (peso.getAltura() / 100);
+        double calcIMC = peso.getPeso() / alturaIMC;
+        peso.setIMC((int) calcIMC);
+        pesoService.save(peso);
         pesoService.save(peso);
         
         return "redirect:/peso/listaPesos";
