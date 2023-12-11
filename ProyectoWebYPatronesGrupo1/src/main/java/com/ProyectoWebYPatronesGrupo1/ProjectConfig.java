@@ -42,7 +42,7 @@ public class ProjectConfig implements WebMvcConfigurer  {
                         "/calorias", "/calorias/regCalorias","/calorias/guardar", "/calorias/listaCalorias",
                         "/calorias/modificarCalorias/**","/calorias/confirmarEliminar/**", "/calorias/eliminar/**",
                         
-                       "/cicloMenstrual", "/cicloMenstrual/regCiclo","/cicloMenstrual/guardar", "/cicloMenstrual/listaCalorias",
+                       "/cicloMenstrual", "/cicloMenstrual/regCiclo","/cicloMenstrual/guardar", "/cicloMenstrual/listaCiclos",
                       "/cicloMenstrual/modificarCiclo/**","/cicloMenstrual/confirmarEliminar/**", "/cicloMenstrual/eliminar/**",
                         
                         "/sueno", "/sueno/regSueno","/sueno/guardar", "/sueno/listaSuenos",
