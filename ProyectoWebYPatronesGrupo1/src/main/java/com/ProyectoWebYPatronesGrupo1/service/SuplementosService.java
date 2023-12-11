@@ -18,4 +18,6 @@ public interface SuplementosService {
     
     public void delete(Suplementos suplementos);
     
+      public List<String> calcularTopTres(List<Suplementos> suplementos);
+
 }

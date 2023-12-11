@@ -32,7 +32,14 @@
 .formularioCiclo{
     text-align:left;
 }
-    
+
+.formularioSuplementos{
+    text-align:left;
+     color: #ffffff;
+      font-size: x-large;
+}
+
+
 #cardMenu{
     padding-bottom: 30px;
 }

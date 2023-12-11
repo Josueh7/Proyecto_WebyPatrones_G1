@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout/layout :: head">
+
+    </head>
+    <body style="background-color: #5C4AB5">
+        <header th:replace="layout/layout :: header"></header>
+
+
+        <section class="container mt-3"> 
+            <div class="container text-center">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h1>Registros</h1>
+                    </div>
+                    <div class="col">
+                        <a th:href="@{/}"><i class="fa-solid fa-arrow-left fa-2xl" style="color: #ffffff;"></i></a> 
+                    </div>
+                </div>
+                <div class="col-12 align-items-center">
+                    <div class="card container custom-card-top mb-3 mt-3">
+                        <h3>Estos son tu suplementos mas consumidos</h3>
+                        <div class="row" th:each="top : ${topTres}">
+                            <h5 th:text="${top}"></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    
+                    <div class="col-4" th:each="s : ${suplementos}">
+                        <div class="card custom-card mb-3" style="max-width: 25rem;">
+                            <div class="card-header">Fecha: [[${s.fecha}]]</div>
+                            <div class="card-header"></div>
+                            <div class="card-body">
+                                <div>
+                                    <h5 th:if="${s.proteina}" class="card-title">
+                                        Proteína
+                                    </h5>
+                                </div>
+                                <div>
+                                    <h5 th:if="${s.creatina}" class="card-title">
+                                        Creatína
+                                    </h5>
+                                </div>
+                                <div>
+                                    <h5 th:if="${s.aminoacidos}" class="card-title">
+                                        Aminoacidos
+                                    </h5>
+                                </div>
+                                <div>
+                                    <h5 th:if="${s.multivitaminicos}" class="card-title">
+                                        Multivitaminicos
+                                    </h5>
+                                </div>
+                                <div>
+                                    <h5 th:if="${s.preEntreno}" class="card-title">
+                                        Pre-Entreno
+                                    </h5>
+                                </div>
+                                <div>
+                                    <h5 th:if="${s.otrosSuplementos}" class="card-title">
+                                        Otros...
+                                    </h5>
+                                </div>
+                                <p class="card-text">Cantidad en gramos [[${s.cantidad}]]</p>
+                                
+                                <div class="card-footer d-flex justify-content-between align-items-center">
+                                    <a type="button" class="btn btn-outline-light btn-mm" th:href="@{/Suplementos/modificarSuplementos/}+${s.idRegistro}"
+                                       >Actualizar el registro</a>
+                                    <a type="button" class="btn btn-outline-light btn-mm" th:href="@{/Suplementos/confirmarEliminar/}+${s.idRegistro}"
+                                       >Eliminar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+
+        <footer th:replace="layout/layout :: footer"></footer>
+    </body>
+</html>
+

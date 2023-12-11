@@ -24,11 +24,10 @@ public class Peso implements Serializable{
     private double IMC;
     private String fecha;
 
-    public Peso(double peso, double altura, double IMC, String fecha) {
+    public Peso(double peso, double altura) {
         this.peso = peso;
         this.altura = altura;
-        this.IMC = IMC;
-        this.fecha = fecha;
+
     }
 
     public Peso() {
