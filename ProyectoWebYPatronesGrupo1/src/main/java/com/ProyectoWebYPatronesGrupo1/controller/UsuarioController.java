@@ -21,7 +21,6 @@ public class UsuarioController {
 
     @GetMapping("/listado")
     public String listado(Model model) {
-//      var usuarios = usuarioService.getUsuarios();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         Usuario usuarioAutenticado = usuarioService.getUsuarioPorUsername(username);

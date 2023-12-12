@@ -32,7 +32,7 @@ public class SuplementosController {
     }
 
     @PostMapping("/guardar")
-    public String registrarCiclo(Suplementos suplementos,
+    public String registrarSuplementos(Suplementos suplementos,
             @RequestParam(name = "proteina", defaultValue = "false") boolean proteina,
             @RequestParam(name = "creatina", defaultValue = "false") boolean creatina,
             @RequestParam(name = "aminoacidos", defaultValue = "false") boolean aminoacidos,

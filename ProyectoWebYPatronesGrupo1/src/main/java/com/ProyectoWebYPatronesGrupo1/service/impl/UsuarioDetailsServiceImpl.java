@@ -28,19 +28,15 @@ public class UsuarioDetailsServiceImpl implements UsuarioDetailsService, UserDet
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //Buscar usuario po0r el username en la BD
         Usuario usuario = usuarioDao.findByUsername(username);
         
-        //Si no existe el usuario
         if (usuario == null) {
             throw new UsernameNotFoundException(username);            
         }
-        //Transformar roles a Granted Authority
         var roles = new ArrayList<GrantedAuthority>();
-        for(Rol item : usuario.getRoles()){
-            roles.add(new SimpleGrantedAuthority(item.getNombre()));
+        for(Rol rol : usuario.getRoles()){
+            roles.add(new SimpleGrantedAuthority(rol.getNombre()));
         }
-        //Se retorna el user (Clase UserDetails)
         return new User(usuario.getUsername(), usuario.getPassword(), roles);
     }
 
